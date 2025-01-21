@@ -1,0 +1,213 @@
+/* General Auth Container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8686cc;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Form container */
+  .auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 900px;
+    min-height: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    transition: transform 0.5s ease-in-out;
+    flex-direction: row;
+  }
+  
+  /* Image styling */
+  .auth-image {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    z-index: 1;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Specific images for login/signup */
+  .auth-image.login-page {
+    background: url('../assets/login.png') no-repeat center center/cover;
+    transform: translateX(-100%);
+  }
+  
+  .auth-image.signup-page {
+    background: url('../assets/signup.png') no-repeat center center/cover;
+    transform: translateX(100%);
+  }
+  
+  /* Form container styling */
+  .auth-form {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    z-index: 2;
+    min-height: 100%;
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Form heading */
+  .auth-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Form input styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Button styles */
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5c6bc0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #3f4c92;
+  }
+  
+  /* Error message styling */
+  p {
+    color: red;
+    font-size: 0.875rem;
+    margin: 10px 0;
+  }
+  
+  /* Animation for form containers */
+  .auth-form-container.login-page {
+    transform: translateX(0);
+  }
+  
+  .auth-form-container.signup-page {
+    transform: translateX(0);
+  }
+  
+  /* Hide/show form container for login/signup */
+  .auth-form-container.signup-page.show {
+    transform: translateX(0);
+  }
+  
+  .auth-form-container.signup-page.hide {
+    transform: translateX(100%);
+  }
+  
+  .auth-form-container.login-page.hide {
+    transform: translateX(-100%);
+  }
+  
+  /* Image animations */
+  .auth-form-container.login-page .auth-image {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+  
+  .auth-form-container.signup-page .auth-image {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+  
+  /* Keyframes for image sliding animations */
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Fade-in effect for the form container */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .auth-form-container {
+      flex-direction: column; /* Stack form and image on top of each other */
+      min-height: auto;
+    }
+  
+    .auth-form {
+      width: 80%;
+      padding: 30px;
+      margin-top: 20px;
+    }
+  
+    .auth-image {
+      width: 100%;
+      height: 300px; /* Adjust height of the image for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .auth-form-container {
+      width: 90%;
+    }
+  
+    .auth-form h2 {
+      font-size: 1.5rem;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    button {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  }
+  
