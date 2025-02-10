@@ -19,7 +19,6 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
-    // Optionally navigate to login page after logout
     navigate("/login", { replace: true });
   };
 

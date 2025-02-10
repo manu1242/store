@@ -17,7 +17,7 @@ const EditProduct = ({ productId }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/categories');
+        const response = await axios.get('https://store-server-xi.vercel.app/api/categories');
         setCategories(response.data);
       } catch (err) {
         setError('Failed to load categories');
@@ -29,7 +29,7 @@ const EditProduct = ({ productId }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/${productId}`);
+        const response = await axios.get(`https://store-server-xi.vercel.app/api/products/${productId}`);
         setProduct(response.data);
         setFormData({
           name: response.data.name,
@@ -55,10 +55,10 @@ const EditProduct = ({ productId }) => {
     e.preventDefault();
     try {
       if (newCategory) {
-        await axios.post('http://localhost:5000/api/categories', { name: newCategory });
+        await axios.post('https://store-server-xi.vercel.app/api/categories', { name: newCategory });
         setNewCategory('');
         alert('Category added successfully!');
-        const response = await axios.get('http://localhost:5000/api/categories');
+        const response = await axios.get('https://store-server-xi.vercel.app/api/categories');
         setCategories(response.data);
       }
     } catch (err) {
@@ -69,7 +69,7 @@ const EditProduct = ({ productId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/products/${productId}`, formData);
+      await axios.put(`https://store-server-xi.vercel.app/api/products/${productId}`, formData);
       alert('Product updated successfully!');
     } catch (err) {
       setError('Failed to update product');
@@ -79,7 +79,7 @@ const EditProduct = ({ productId }) => {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/products', formData);
+      await axios.post('https://store-server-xi.vercel.app/api/products', formData);
       alert('Product added successfully!');
       setFormData({
         name: '',

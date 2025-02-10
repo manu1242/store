@@ -74,7 +74,7 @@ const HomePage = () => {
   
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/transactions",
+          "https://store-server-xi.vercel.app/api/transactions",
           transaction
         );
         if (response.status === 201) {
