@@ -17,7 +17,7 @@ const TransactionsPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/categories");
+        const response = await axios.get("https://store-server-xi.vercel.app/api/categories");
         setCategories(response.data);
         setLoadingCategories(false);
       } catch (error) {
@@ -28,7 +28,7 @@ const TransactionsPage = () => {
 
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/transactions");
+        const response = await axios.get("https://store-server-xi.vercel.app/api/transactions");
         setTransactions(response.data);
         setFilteredTransactions(response.data);
       } catch (error) {
