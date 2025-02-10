@@ -111,6 +111,9 @@ app.get("/api/transactions", async (req, res) => {
     res.status(500).json({ message: "Error fetching transactions" });
   }
 });
+app.get('/',async(req,res)=>{
+  res.send("Its Working Priya")
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
