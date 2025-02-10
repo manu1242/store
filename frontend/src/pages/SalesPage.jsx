@@ -18,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/categories");
+        const response = await axios.get("https://store-server-xi.vercel.app/api/categories");
         setCategories(response.data);
       } catch (error) {
         console.error(error);
@@ -32,7 +32,7 @@ const HomePage = () => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/products/category/${category}`
+            `https://store-server-xi.vercel.app/api/products/category/${category}`
           );
           setProducts(response.data);
         } catch (error) {
